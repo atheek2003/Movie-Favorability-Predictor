@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Favorability Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000; /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff; /* White container background */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+            text-align: center; /* Center align content */
+        }
+
+        h1 {
+            color: #333; /* Dark grey header text */
+            margin-bottom: 20px;
+        }
+
+        .predicted-rating {
+            font-size: 36px;
+            color: #00cc66; /* Green text for predicted rating */
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Use different font for predicted rating */
+            margin-bottom: 20px;
+        }
+
+        .note {
+            font-size: 16px;
+            color: #555; /* Dark grey text for note */
+            text-align: left; /* Align text to the left */
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9; /* Light grey background for note */
+            border-radius: 5px;
+        }
+
+        .note p {
+            margin-bottom: 10px; /* Add spacing between paragraphs */
+        }
+
+        .bad {
+            color: #ff3333; /* Red text for bad rating */
+        }
+
+        .below-average {
+            color: #ff9933; /* Orange text for below average rating */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predicted Favorability Ratings</h1>
+        {% for model, prediction in predictions.items() %}
+            <h2>{{ model }}</h2>
+            <p class="predicted-rating">{{ prediction }}</p>
+        {% endfor %}
+        <div class="note">
+            <p>Note:</p>
+            <p>If the predicted rating is less than 0.3, the movie is considered bad or below average.</p>
+            <p>If the predicted rating is between 0.3 and 0.5, the movie is considered average.</p>
+            <p>If the predicted rating is between 0.5 and 0.7, the movie is considered decent.</p>
+            <p>If the predicted rating is greater than 0.7, the movie is considered good.</p>
+        </div>
+    </div>
+</body>
+</html>
