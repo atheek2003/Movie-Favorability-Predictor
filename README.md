@@ -37,3 +37,8 @@ To use this Movie Favorability Predictor, follow these steps:
 3. Install required dependencies
    ```bash
    pip install -r requirements.txt
+
+4. Run the app using the commmand
+   ```bash
+   python app.py
+
